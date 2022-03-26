@@ -43,10 +43,55 @@ namespace modul5_1302200104
             Console.WriteLine("playCount:" + playCount);
         }
     }
-    class SayaTubeUser
+    class SayaTubeUser (String title)
     {
-        public int id;
-        public string username;
+        Debug.Assert(title.Leght <=200,"panjang tidak title tidak kurang dari 200 karakter");
+        Debug.Assert(title != null, "Judul tidak boleh Null");
+
+        int.this playCount= checked(this.GetTotalVideoplayCount +1)
+        int id;
+        List<SayaTubeVideo> uploadedVideo;
+        string Username;
+
+        public SayaTubeUser(string profile)
+        {
+            this.Username = profile;
+            Random generate = new Random();
+            this.id = generate.Next(0, 100000);
+
+        }
+
+        public void GetTotalVideoplayCount()
+        {
+            int dataplayCount = 0;
+            foreach (SayaTubeVideo video in uploadedVideo)
+            {
+                dataplayCount = dataplayCount + video.GetPlaycount();
+            }
+        }
+
+        public void addVideo(SayaTubeVideo data)
+        {
+            uploadedVideo.Add(data);
+        }
+
+
+        public void printAllvideoplayCount()
+        {
+
+            for (int i = 0; i < uploadedVideo.Count; i++)
+            {
+                Console.WriteLine("username:" + Username);
+                Console.WriteLine("video:" + (i + 1) + ":" + uploadedVideo[i]);
+            }
+
+        }
+
+
+
+
+
+
 
     }
 }
